@@ -1,16 +1,18 @@
 
 package com.example.sven.contentproviderdemo;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by SVEN on 2017/7/11.
  */
 
 public class SqliteHelper extends SQLiteOpenHelper {
+
+    private static final String TAG = "SqliteHelper";
 
     private volatile static SqliteHelper sqliteHelper;
     private static final String DB_NAME = "user.db";
@@ -44,6 +46,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.i(TAG, "onCreate");
         db.execSQL(CREATE_TABLE);
     }
 
@@ -52,20 +55,4 @@ public class SqliteHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE);
         onCreate(db);
     }
-
-    public void insert(SqliteHelper sqliteHelper, User user){
-        SQLiteDatabase db = sqliteHelper.getReadableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("name",user.getName());
-        values.put("age",user.getAge());
-        values.put("address",user.getAddress());
-
-        db.insert("users", null ,values);
-        db.close();
-    }
-
-    public void closeDb(){
-        sqliteHelper.close();
-    }
-
 }
