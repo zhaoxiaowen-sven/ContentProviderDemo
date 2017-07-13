@@ -1,4 +1,5 @@
-package com.example.sven.contentproviderdemo;
+
+package com.example.sven.contentproviderdemo.bean;
 
 /**
  * Created by SVEN on 2017/7/11.

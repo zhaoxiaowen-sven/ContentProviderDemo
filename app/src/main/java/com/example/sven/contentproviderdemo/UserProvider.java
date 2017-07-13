@@ -20,12 +20,18 @@ public class UserProvider extends ContentProvider {
 
     public static final int USER_ITEM = 1;
 
+    public static final int BOOK_DIR = 2;
+
+    public static final int BOOK_ITEM = 3;
+
     private static UriMatcher mUriMatcher;
 
     static {
         mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        mUriMatcher.addURI(AUTHORITY, "user", USER_DIR);
-        mUriMatcher.addURI(AUTHORITY, "user", USER_ITEM);
+        mUriMatcher.addURI(AUTHORITY, "users", USER_DIR);
+        mUriMatcher.addURI(AUTHORITY, "users/#", USER_ITEM);
+        mUriMatcher.addURI(AUTHORITY, "books", BOOK_DIR);
+        mUriMatcher.addURI(AUTHORITY, "books/#", BOOK_ITEM);
     }
 
 
@@ -46,9 +52,13 @@ public class UserProvider extends ContentProvider {
 
         switch (mUriMatcher.match(uri)){
             case USER_DIR:
-                return "vnd.android.cursor.dir/vnd."+AUTHORITY+"/user";
+                return "vnd.android.cursor.dir/vnd." + AUTHORITY + "/users";
             case USER_ITEM:
-                return "vnd.android.cursor.dir/vnd."+AUTHORITY+"/user";
+                return "vnd.android.cursor.dir/vnd." + AUTHORITY + "/users";
+            case BOOK_DIR:
+                return "vnd.android.cursor.dir/vnd." + AUTHORITY + "/books";
+            case BOOK_ITEM:
+                return "vnd.android.cursor.dir/vnd." + AUTHORITY + "/books";
             default:
                 break;
         }
@@ -58,6 +68,7 @@ public class UserProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+        // case B
         return null;
     }
 
