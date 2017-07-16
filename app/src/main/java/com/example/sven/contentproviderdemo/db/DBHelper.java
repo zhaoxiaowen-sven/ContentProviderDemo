@@ -27,9 +27,9 @@ public class DBHelper {
     }
 
     private synchronized void openDb() {
-        if (!db.isOpen()) {
+//        if (!db.isOpen()) {
             db = sqliteHelper.getWritableDatabase();
-        }
+//        }
     }
 
     public synchronized void closeDb() {
