@@ -112,10 +112,8 @@ public class DbProvider extends ContentProvider {
         switch (mUriMatcher.match(uri)) {
             case USER_DIR:
             case USER_ITEM:
-                Log.i(TAG, "insert" +values.toString()+" uri = "+uriReturn);
                 long newUserId = db.insert("users", null, values);
                 uriReturn = Uri.parse("content://" + AUTHORITY + "/users/" + newUserId);
-
                 break;
             case BOOK_DIR:
             case BOOK_ITEM:
@@ -125,6 +123,7 @@ public class DbProvider extends ContentProvider {
             default:
                 break;
         }
+        Log.i(TAG, "insert" + values.toString() + " uri = " + uriReturn);
         return uriReturn;
     }
 
