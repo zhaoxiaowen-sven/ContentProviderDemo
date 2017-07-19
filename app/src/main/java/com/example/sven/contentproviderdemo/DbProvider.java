@@ -5,8 +5,10 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -79,6 +81,15 @@ public class DbProvider extends ContentProvider {
                 }, null, null, sortOrder);
                 break;
             default:
+//                Cursor cursor = db.query();
+//                MatrixCursor m = new MatrixCursor(new String[]{"c1", "c2", "c3"});
+//                while(cursor.moveToNext()) {
+//                    int i = cursor.getInt(0);
+//                    String s = cursor.getString(1);
+//                    float f = cursor.getFloat(2);
+//                    m.addRow(new Object[]{i, s, f});
+//                }
+//                return m;
                 break;
         }
         return cursor;
@@ -184,8 +195,26 @@ public class DbProvider extends ContentProvider {
                 });
                 break;
             default:
+
                 break;
         }
         return updateRows;
+    }
+
+    @Nullable
+    @Override
+    public Bundle call(@NonNull String method, @Nullable String arg, @Nullable Bundle extras) {
+//        return super.call(method, arg, extras);
+//        Bundle b = new Bundle();
+//        b.putString("name", "methodA");
+//        return b;
+        return getSharedPreferenceData();
+    }
+
+    public Bundle getSharedPreferenceData(){
+        Log.i(TAG, "getSharedPreferenceData");
+        Bundle b = new Bundle();
+        b.putString("name","getSharedPerferenceData");
+        return b;
     }
 }
