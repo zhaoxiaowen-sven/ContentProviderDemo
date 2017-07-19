@@ -5,7 +5,6 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -81,13 +80,17 @@ public class DbProvider extends ContentProvider {
                 }, null, null, sortOrder);
                 break;
             default:
-//                Cursor cursor = db.query();
+                // 原始数据
+                // Log.i(TAG, "default here");
+                // Cursor cursor1 = db.query("users", null, "id = ?", new String[]{"1"},null, null,
+                // null);
 //                MatrixCursor m = new MatrixCursor(new String[]{"c1", "c2", "c3"});
-//                while(cursor.moveToNext()) {
-//                    int i = cursor.getInt(0);
-//                    String s = cursor.getString(1);
-//                    float f = cursor.getFloat(2);
-//                    m.addRow(new Object[]{i, s, f});
+                // while(cursor1.moveToNext()) {
+                // String name = cursor1.getString(1);
+                // int age = cursor1.getInt(2);
+                // String address = cursor1.getString(3);
+                // Log.i(TAG, name + "age = "+age + "address = "+address);
+                // m.addRow(new Object[]{name, age, address});
 //                }
 //                return m;
                 break;
@@ -208,13 +211,20 @@ public class DbProvider extends ContentProvider {
 //        Bundle b = new Bundle();
 //        b.putString("name", "methodA");
 //        return b;
-        return getSharedPreferenceData();
+
+        switch (method) {
+            case "getData":
+                return getData();
+            default:
+                break;
+        }
+        return null;
     }
 
-    public Bundle getSharedPreferenceData(){
+    public Bundle getData() {
         Log.i(TAG, "getSharedPreferenceData");
         Bundle b = new Bundle();
-        b.putString("name","getSharedPerferenceData");
+        b.putString("name", "call getData");
         return b;
     }
 }

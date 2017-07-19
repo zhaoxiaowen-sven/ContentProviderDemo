@@ -27,9 +27,9 @@ public class DBHelper {
     }
 
     private synchronized void openDb() {
-//        if (!db.isOpen()) {
-            db = sqliteHelper.getWritableDatabase();
-//        }
+        // if (!db.isOpen()) {
+        db = sqliteHelper.getWritableDatabase();
+        // }
     }
 
     public synchronized void closeDb() {
@@ -140,10 +140,12 @@ public class DBHelper {
 
     public Book queryBook(int id) {
         openDb();
+        // Log.i(TAG , "cursor = "+cursor);??
         Book book = new Book();
         Cursor cursor = db.query(DbConstant.TABLE_BOOK, null, "id = ?", new String[] {
                 id + ""
         }, null, null, null);
+
         if (cursor.moveToFirst()) {
             book.setName(cursor.getString(cursor.getColumnIndex("name")));
             book.setAuthor(cursor.getString(cursor.getColumnIndex("author")));

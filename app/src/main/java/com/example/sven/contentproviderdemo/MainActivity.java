@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 dbHelper.updateBook(1, new Book("Python", "zxw", 50));
                 break;
             case R.id.book_bt5:
-                Book book = dbHelper.queryBook(1);
+                Book book = dbHelper.queryBook(1000);
                 Log.i(TAG, book.toString());
                 break;
             case R.id.book_bt6:

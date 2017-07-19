@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/activity_main">
+
+
+    <Button
+        android:id="@+id/bt5"
+        android:onClick="onClick"
+        android:text="ContentResolver添加Book数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt6"
+        android:onClick="onClick"
+        android:text="ContentResolver删除Book数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt7"
+        android:onClick="onClick"
+        android:text="ContentResolver修改Book数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt8"
+        android:onClick="onClick"
+        android:text="ContentResolver查询Book数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt89"
+        android:onClick="onClick"
+        android:text="ContentResolver查询单本Book数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</merge>

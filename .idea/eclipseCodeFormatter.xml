@@ -4,11 +4,11 @@
     <option name="selectedGlobalProfile">
       <Settings>
         <option name="formatter" value="ECLIPSE" />
-        <option name="id" value="1493459166805" />
-        <option name="importOrderConfigFilePath" value="Z:/work/PD1616/development/ide/eclipse/android.importorder" />
+        <option name="id" value="1496760715061" />
+        <option name="importOrderConfigFilePath" value="$PROJECT_DIR$/../../CodeFormat/android.importorder" />
         <option name="importOrderFromFile" value="true" />
         <option name="name" value="default" />
-        <option name="pathToConfigFileJava" value="Z:/work/PD1616/development/ide/eclipse/android-formatting.xml" />
+        <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../CodeFormat/android-formatting.xml" />
         <option name="selectedJavaProfile" value="Android" />
       </Settings>
     </option>

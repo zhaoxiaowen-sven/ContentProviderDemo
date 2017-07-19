@@ -12,14 +12,20 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:exported="true"
+            android:name=".DbProvider"
             android:authorities="com.example.sven.contentproviderdemo.provider"
-            android:name="com.example.sven.contentproviderdemo.DbProvider"/>
+            android:exported="true" />
+
+        <activity
+            android:name=".Main2Activity"
+            android:process="com.example.sven.provider.remote">
+
+        </activity>
     </application>
 
 </manifest>
