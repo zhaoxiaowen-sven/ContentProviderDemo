@@ -214,15 +214,15 @@ public class DbProvider extends ContentProvider {
 
         switch (method) {
             case "getData":
-                return getData();
+                return getData(arg);
             default:
                 break;
         }
         return null;
     }
 
-    public Bundle getData() {
-        Log.i(TAG, "getSharedPreferenceData");
+    public Bundle getData(String s) {
+        Log.i(TAG, "getData " + s);
         Bundle b = new Bundle();
         b.putString("name", "call getData");
         return b;

@@ -77,7 +77,7 @@ public class Main2Activity extends AppCompatActivity {
             case R.id.bt456:
                 // uri格式最后一定要带一个 /
                 Uri uriCall = Uri.parse("content://" + AUTHORITY + "/");
-                Bundle b = getContentResolver().call(uriCall, "getData", null, null);
+                Bundle b = getContentResolver().call(uriCall, "getData", "hello", null);
                 Log.i(TAG, "" + b.get("name"));
                 break;
 
